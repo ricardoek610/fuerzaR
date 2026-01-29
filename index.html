@@ -240,7 +240,7 @@
   }
 
   async function cargarAnuncios() {
-    const res = await fetch("https://TU-API.up.railway.app/anuncios");
+    const res = await fetch("https://fuerzar-production.up.railway.app/anuncios");
     const data = await res.json();
 
     const contenedor = document.getElementById("anuncios");

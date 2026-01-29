@@ -6,20 +6,11 @@ app.use(cors());
 app.use(express.json());
 
 // endpoint de prueba
-app.get("/anuncios", (req, res) => {
-  res.json([
-    {
-      titulo: "Gira Ranchera 2026",
-      descripcion: "Fechas confirmadas en México y USA"
-    },
-    {
-      titulo: "Nuevo Álbum",
-      descripcion: "Sonidos tradicionales con letras firmes"
-    },
-    {
-      titulo: "Merch Oficial",
-      descripcion: "Sombreros, camisas y sudaderas"
-    }
+app.get("/frases", (req, res) => {
+  res.json([ "El respeto se gana, no se pide.",
+    "Humildes pero firmes.",
+    "Del rancho pa’l mundo.",
+    "Con el polvo del camino seguimos de pie."
   ]);
 });
 

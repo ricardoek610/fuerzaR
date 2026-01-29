@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Fuerza Regida | Estilo Ranchero</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Rye&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #2b1d0f;
+      color: #f5f5f5;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      background: #3b2614;
+      padding: 15px 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-family: 'Rye', cursive;
+      color: #e0b973;
+      font-size: 1.8rem;
+    }
+
+    .menu {
+      display: flex;
+      gap: 20px;
+    }
+
+    .menu a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .menu a:hover {
+      color: #e0b973;
+    }
+
+    .menu-btn {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)),
+      url("https://images.unsplash.com/photo-1519681393784-d120267933ba") center/cover;
+      height: 85vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .hero h2 {
+      font-family: 'Rye', cursive;
+      font-size: 3rem;
+      color: #e0b973;
+    }
+
+    /* ===== SECCIONES ===== */
+    section {
+      padding: 60px 30px;
+    }
+
+    h3 {
+      font-family: 'Rye', cursive;
+      color: #e0b973;
+      margin-bottom: 30px;
+      text-align: center;
+      font-size: 2rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: #3b2614;
+      border-radius: 15px;
+      padding: 25px;
+      border: 2px solid #6b4a2b;
+      transition: transform .3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+    }
+
+    .card h4 {
+      color: #e0b973;
+      margin-bottom: 10px;
+    }
+
+    /* ===== BOTONES ===== */
+    .btn {
+      display: inline-block;
+      margin-top: 15px;
+      background: #e0b973;
+      color: #2b1d0f;
+      padding: 10px 22px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: #ffd98a;
+    }
+
+    /* ===== FRASES ===== */
+    .frases {
+      background: #24160b;
+      text-align: center;
+    }
+
+    .frases p {
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    footer {
+      background: #1a0f07;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #bbb;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .menu {
+        display: none;
+        flex-direction: column;
+        background: #3b2614;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        padding: 15px;
+        border-radius: 10px;
+      }
+
+      .menu.active {
+        display: flex;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .hero h2 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Fuerza Regida</h1>
+  <div class="menu-btn" onclick="toggleMenu()">☰</div>
+  <nav class="menu" id="menu">
+    <a href="#">Inicio</a>
+    <a href="#">Anuncios</a>
+    <a href="#">Frases</a>
+    <a href="#">Gira</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <h2>Del rancho pa’l mundo</h2>
+</div>
+
+<section>
+  <h3>🔥 Anuncios</h3>
+  <div class="cards">
+    <div class="card">
+      <h4>Gira Ranchera 2026</h4>
+      <p>Presentaciones confirmadas en México y Estados Unidos.</p>
+      <div class="btn" onclick="alerta()">Ver fechas</div>
+    </div>
+
+    <div class="card">
+      <h4>Nuevo Álbum</h4>
+      <p>Sonidos tradicionales con letras firmes.</p>
+      <div class="btn" onclick="alerta()">Escuchar</div>
+    </div>
+
+    <div class="card">
+      <h4>Merch Oficial</h4>
+      <p>Sombreros, camisas y sudaderas.</p>
+      <div class="btn" onclick="alerta()">Comprar</div>
+    </div>
+  </div>
+</section>
+
+<section class="frases">
+  <h3>🎶 Frases</h3>
+  <p>"El respeto se gana, no se pide."</p>
+  <p>"Humildes pero firmes."</p>
+  <p>"Con el polvo del camino seguimos de pie."</p>
+</section>
+
+<footer>
+  © 2026 Fuerza Regida | Página Fan (no oficial)
+</footer>
+
+<script>
+  function toggleMenu() {
+    document.getElementById("menu").classList.toggle("active");
+  }
+
+  function alerta() {
+    alert("🔥 Contenido próximamente disponible 🔥");
+  }
+</script>
+
+</body>
+</html>

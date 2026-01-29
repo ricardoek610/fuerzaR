@@ -216,9 +216,9 @@
 
 <section class="frases">
   <h3>🎶 Frases</h3>
-  <p>"El respeto se gana, no se pide."</p>
-  <p>"Humildes pero firmes."</p>
-  <p>"Con el polvo del camino seguimos de pie."</p>
+  <div id="frases-dinamicas">
+    <p>Cargando frases...</p>
+  </div>
 </section>
 
 <footer>
@@ -235,29 +235,21 @@
   }
 </script>
 <script>
-  function toggleMenu() {
-    document.getElementById("menu").classList.toggle("active");
-  }
+  fetch("https://fuerzar-production.up.railway.app/api/frases")
+    .then(res => res.json())
+    .then(frases => {
+      const contenedor = document.getElementById("frases-dinamicas");
+      contenedor.innerHTML = "";
 
-  async function cargarAnuncios() {
-    const res = await fetch("https://fuerzar-production.up.railway.app/anuncios");
-    const data = await res.json();
-
-    const contenedor = document.getElementById("anuncios");
-    contenedor.innerHTML = "";
-
-    data.forEach(item => {
-      contenedor.innerHTML += `
-        <div class="card">
-          <h4>${item.titulo}</h4>
-          <p>${item.descripcion}</p>
-          <div class="btn">Ver más</div>
-        </div>
-      `;
+      frases.forEach(f => {
+        const p = document.createElement("p");
+        p.textContent = `"${f}"`;
+        contenedor.appendChild(p);
+      });
+    })
+    .catch(err => {
+      console.error("Error conectando al backend:", err);
     });
-  }
-
-  cargarAnuncios();
 </script>
 </body>
 </html>
